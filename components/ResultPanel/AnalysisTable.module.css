@@ -1,0 +1,188 @@
+/* ============================================
+   ANALYSIS TABLE - Cyberpunk Data Grid
+   ============================================ */
+
+.analysisSection {
+  margin-top: 20px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Corner accents */
+.analysisSection::before,
+.analysisSection::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--accent);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.analysisSection::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.analysisSection::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Section Header - Collapsible */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--muted);
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
+  transition: all 0.15s;
+}
+
+.sectionHeader:hover {
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.sectionHeader::before {
+  content: "//";
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* Item Count Badge */
+.itemCount {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--background);
+  background: var(--accent);
+  padding: 2px 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* Chevron Icon */
+.chevron {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  transition: transform 0.2s;
+}
+
+.chevron.expanded {
+  transform: rotate(180deg);
+}
+
+/* Table Wrapper */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+/* Analysis Table */
+.analysisTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+.analysisTable th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--accent-tertiary);
+  background: var(--card);
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+}
+
+.analysisTable td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--foreground-secondary);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.analysisTable tr:last-child td {
+  border-bottom: none;
+}
+
+.analysisTable tr:hover td {
+  background: rgba(0, 255, 136, 0.02);
+}
+
+/* Column Widths */
+.dimensionCol {
+  width: 100px;
+}
+
+.issueCol {
+  width: 40%;
+}
+
+.optimizedCol {
+  width: 40%;
+}
+
+/* Dimension Cell */
+.dimensionCell {
+  white-space: nowrap;
+}
+
+.dimensionTag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-tertiary);
+  border: 1px solid var(--accent-tertiary);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Issue Cell - Warning/Problem */
+.issueCell {
+  color: var(--muted-foreground);
+  position: relative;
+  padding-left: 24px !important;
+}
+
+.issueCell::before {
+  content: "×";
+  position: absolute;
+  left: 16px;
+  color: var(--destructive);
+  font-weight: bold;
+}
+
+/* Optimized Cell - Success/Solution */
+.optimizedCell {
+  color: var(--accent);
+  position: relative;
+  padding-left: 24px !important;
+}
+
+.optimizedCell::before {
+  content: "✓";
+  position: absolute;
+  left: 16px;
+  color: var(--accent);
+  font-weight: bold;
+}

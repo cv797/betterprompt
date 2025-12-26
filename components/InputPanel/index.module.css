@@ -1,0 +1,197 @@
+/* ============================================
+   INPUT PANEL - Terminal Style Input
+   ============================================ */
+
+.inputPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Chamfered corners effect via clip-path */
+.inputPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--card);
+  clip-path: polygon(
+    0 10px, 10px 0,
+    calc(100% - 10px) 0, 100% 10px,
+    100% calc(100% - 10px), calc(100% - 10px) 100%,
+    10px 100%, 0 calc(100% - 10px)
+  );
+  z-index: -1;
+}
+
+/* Circuit grid background */
+.inputPanel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Panel Header */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 1;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
+}
+
+/* Terminal-style header decoration */
+.headerLeft::before {
+  content: ">";
+  color: var(--accent);
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Character count - monospace terminal style */
+.charCount {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  padding: 4px 8px;
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid var(--border-color);
+}
+
+/* Clear button */
+.clearBtn {
+  color: var(--muted-foreground) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  transition: all 0.15s !important;
+}
+
+.clearBtn:hover {
+  color: var(--destructive) !important;
+}
+
+/* Textarea Wrapper */
+.textareaWrapper {
+  flex: 1;
+  min-height: 0;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Textarea */
+.textarea {
+  flex: 1 !important;
+  height: 100% !important;
+  background: var(--background) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--foreground) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  resize: none !important;
+  font-family: var(--font-mono) !important;
+  transition: all 0.2s !important;
+}
+
+.textarea::placeholder {
+  color: var(--muted-foreground) !important;
+  font-style: italic;
+}
+
+.textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: var(--box-shadow-neon-sm) !important;
+  outline: none !important;
+}
+
+/* Submit Button - Glitch CTA Style */
+.submitBtn {
+  width: 100%;
+  height: 48px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  background: var(--accent) !important;
+  border: none !important;
+  color: #000000 !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.15s !important;
+}
+
+.submitBtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+
+.submitBtn:hover::before {
+  transform: translateX(100%);
+}
+
+.submitBtn:hover {
+  filter: brightness(1.15) !important;
+  box-shadow: var(--box-shadow-neon-lg) !important;
+}
+
+.submitBtn:active {
+  filter: brightness(0.95) !important;
+  transform: translateY(1px);
+}
+
+/* Loading state */
+.submitBtn:global(.ant-btn-loading) {
+  opacity: 0.8;
+}
+
+.submitBtn :global(.ant-btn-loading-icon) {
+  color: var(--background) !important;
+}

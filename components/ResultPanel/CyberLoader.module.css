@@ -1,0 +1,325 @@
+/* ============================================
+   CYBER LOADER - Cyberpunk Loading Animation
+   ============================================ */
+
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
+  position: relative;
+}
+
+/* Main SVG Animation */
+.cyberSvg {
+  width: 200px;
+  height: 200px;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
+}
+
+/* Outer hexagon frame - subtle pulse */
+.hexFrame {
+  animation: framePulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes framePulse {
+  0%, 100% {
+    opacity: 0.6;
+    stroke-width: 1;
+  }
+  50% {
+    opacity: 1;
+    stroke-width: 1.5;
+  }
+}
+
+/* Inner rotating hexagon */
+.rotatingHex {
+  transform-origin: 100px 80px;
+  animation: rotateHex 8s linear infinite;
+}
+
+@keyframes rotateHex {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Center core pulsing effect */
+.pulsingCore {
+  animation: corePulse 1.5s ease-in-out infinite;
+  transform-origin: 100px 80px;
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Data flow lines animation */
+.dataFlow line {
+  animation: dataFlowAnim 1s linear infinite;
+}
+
+@keyframes dataFlowAnim {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+/* Corner brackets animation */
+.cornerBrackets {
+  animation: bracketGlow 2s ease-in-out infinite;
+}
+
+@keyframes bracketGlow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2px #00ff88);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #00ff88);
+  }
+}
+
+/* Scanning line animation */
+.scanLine {
+  animation: scanMove 2s ease-in-out infinite;
+}
+
+@keyframes scanMove {
+  0%, 100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+/* Orbiting nodes animation */
+.orbitingNodes {
+  animation: nodesOrbit 4s linear infinite;
+  transform-origin: 100px 80px;
+}
+
+@keyframes nodesOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbitingNodes circle {
+  animation: nodePulse 1s ease-in-out infinite;
+}
+
+.orbitingNodes circle:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.orbitingNodes circle:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.orbitingNodes circle:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    r: 4;
+  }
+  50% {
+    r: 6;
+  }
+}
+
+/* Binary stream flicker */
+.binaryStream text {
+  animation: binaryFlicker 0.5s step-end infinite;
+}
+
+.binaryStream text:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.binaryStream text:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.binaryStream text:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes binaryFlicker {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Status indicator blink */
+.statusIndicator {
+  animation: statusBlink 1s step-end infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Loader text styling */
+.loaderText {
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.textMain {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.textDots {
+  display: inline-flex;
+}
+
+.textDots span {
+  animation: dotBlink 1.4s infinite;
+  opacity: 0;
+}
+
+.textDots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.textDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.textDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotBlink {
+  0%, 20% {
+    opacity: 0;
+  }
+  40%, 100% {
+    opacity: 1;
+  }
+}
+
+/* Glitch bars decoration */
+.glitchBars {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.glitchBar {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #00ff88, #00d4ff, #ff00ff);
+  animation: glitchBarAnim 2s ease-in-out infinite;
+}
+
+.glitchBar:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.glitchBar:nth-child(2) {
+  animation-delay: 0.3s;
+  width: 60px;
+}
+
+.glitchBar:nth-child(3) {
+  animation-delay: 0.6s;
+  width: 30px;
+}
+
+@keyframes glitchBarAnim {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+  52% {
+    transform: scaleX(0.8) translateX(-5px);
+  }
+  54% {
+    transform: scaleX(1.1) translateX(3px);
+  }
+  56% {
+    transform: scaleX(1);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hexFrame,
+  .rotatingHex,
+  .pulsingCore,
+  .dataFlow line,
+  .cornerBrackets,
+  .scanLine,
+  .orbitingNodes,
+  .orbitingNodes circle,
+  .binaryStream text,
+  .statusIndicator,
+  .textDots span,
+  .glitchBar {
+    animation: none !important;
+  }
+
+  .textDots span {
+    opacity: 1;
+  }
+}

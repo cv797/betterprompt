@@ -1,0 +1,204 @@
+/* ============================================
+   HEADER - Cyberpunk Navigation Bar
+   ============================================ */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border-color);
+  height: 56px;
+  position: relative;
+}
+
+/* Subtle glow line at bottom */
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent) 20%,
+    var(--accent-tertiary) 50%,
+    var(--accent) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+/* Logo Section */
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.5));
+}
+
+.brandText {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+}
+
+.better {
+  color: var(--foreground);
+}
+
+.prompt {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* Center Section - Selectors */
+.centerSection {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.selectorGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.selectorLabel {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
+}
+
+/* Terminal-style prefix for labels */
+.selectorLabel::before {
+  content: "//";
+  color: var(--accent);
+  margin-right: 6px;
+  opacity: 0.7;
+}
+
+.selector {
+  min-width: 160px;
+}
+
+.selector :global(.ant-select-selector) {
+  background: transparent !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--foreground) !important;
+  transition: all 0.2s !important;
+}
+
+.selector :global(.ant-select-selector:hover) {
+  border-color: var(--accent) !important;
+}
+
+.selector :global(.ant-select-focused .ant-select-selector) {
+  border-color: var(--accent) !important;
+  box-shadow: var(--box-shadow-neon-sm) !important;
+}
+
+.selector :global(.ant-select-selection-item) {
+  color: var(--foreground) !important;
+  font-family: var(--font-mono) !important;
+}
+
+.selector :global(.ant-select-arrow) {
+  color: var(--muted-foreground) !important;
+}
+
+.selector :global(.ant-select-arrow:hover) {
+  color: var(--accent) !important;
+}
+
+/* Actions Section */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Custom API Badge with neon glow */
+.customApiBadge :global(.ant-badge-count) {
+  background: var(--accent) !important;
+  color: var(--background) !important;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 0 8px;
+  box-shadow: var(--box-shadow-neon-sm) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Settings Button */
+.settingsBtn {
+  color: var(--muted-foreground) !important;
+  border: 1px solid transparent !important;
+  transition: all 0.15s !important;
+}
+
+.settingsBtn:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  box-shadow: var(--box-shadow-neon-sm) !important;
+}
+
+/* History Button */
+.historyBtn {
+  color: var(--muted-foreground) !important;
+  border: 1px solid transparent !important;
+  transition: all 0.15s !important;
+}
+
+.historyBtn:hover {
+  color: var(--accent-tertiary) !important;
+  border-color: var(--accent-tertiary) !important;
+  box-shadow: var(--box-shadow-neon-tertiary) !important;
+}
+
+/* Template Button */
+.templateBtn {
+  color: var(--muted-foreground) !important;
+  border: 1px solid transparent !important;
+  transition: all 0.15s !important;
+}
+
+.templateBtn:hover {
+  color: var(--accent-secondary) !important;
+  border-color: var(--accent-secondary) !important;
+  box-shadow: var(--box-shadow-neon-secondary) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 16px;
+  }
+
+  .centerSection {
+    gap: 16px;
+  }
+
+  .selectorLabel {
+    display: none;
+  }
+
+  .selector {
+    min-width: 120px;
+  }
+}

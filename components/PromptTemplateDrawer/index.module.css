@@ -1,0 +1,256 @@
+/* ============================================
+   PROMPT TEMPLATE DRAWER - Cyberpunk Template Manager
+   ============================================ */
+
+.drawer :global(.ant-drawer-body) {
+  background: var(--card) !important;
+  padding: 0 !important;
+}
+
+.drawer :global(.ant-drawer-header) {
+  display: none !important;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--card);
+}
+
+/* Sidebar Header */
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--muted);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
+}
+
+.headerTitle::before {
+  content: "//";
+  color: var(--accent-secondary);
+  opacity: 0.7;
+}
+
+.closeBtn {
+  color: var(--muted-foreground) !important;
+  border: 1px solid transparent !important;
+  transition: all 0.15s !important;
+}
+
+.closeBtn:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  box-shadow: var(--box-shadow-neon-sm) !important;
+}
+
+/* Add Section */
+.addSection {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.addSection :global(.ant-btn) {
+  width: 100%;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-size: 12px !important;
+}
+
+/* Template List */
+.templateList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+/* Template Item */
+.templateItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+/* Corner accent */
+.templateItem::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid var(--accent-secondary);
+  border-top: 1px solid var(--accent-secondary);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.templateItem:hover {
+  background: rgba(255, 0, 255, 0.05);
+  border-color: var(--accent-secondary);
+}
+
+.templateItem:hover::before {
+  opacity: 1;
+}
+
+.templateItem.selected {
+  background: rgba(255, 0, 255, 0.1);
+  border-color: var(--accent-secondary);
+  box-shadow: var(--box-shadow-neon-secondary);
+}
+
+.templateItem.selected::before {
+  opacity: 1;
+}
+
+/* Template Info */
+.templateInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.templateName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+}
+
+.defaultBadge {
+  font-size: 9px !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  background: rgba(255, 0, 255, 0.15) !important;
+  border-color: var(--accent-secondary) !important;
+  color: var(--accent-secondary) !important;
+}
+
+.templateDesc {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-mono);
+}
+
+/* Template Actions */
+.templateActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.templateItem:hover .templateActions {
+  opacity: 1;
+}
+
+.templateActions :global(.ant-btn) {
+  color: var(--muted-foreground) !important;
+}
+
+.templateActions :global(.ant-btn:hover) {
+  color: var(--accent-secondary) !important;
+}
+
+/* ============================================
+   EDIT FORM
+   ============================================ */
+
+.editForm {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.formField {
+  margin-bottom: 24px;
+}
+
+.fieldLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
+}
+
+.fieldLabel::before {
+  content: "> ";
+  opacity: 0.7;
+}
+
+.fieldHint {
+  font-size: 10px;
+  color: var(--muted-foreground);
+  font-weight: 400;
+  margin-left: auto;
+}
+
+.input {
+  background: var(--background) !important;
+  border: 1px solid var(--border-color) !important;
+  font-family: var(--font-mono) !important;
+}
+
+.input:focus {
+  border-color: var(--accent-secondary) !important;
+  box-shadow: var(--box-shadow-neon-secondary) !important;
+}
+
+.textarea {
+  background: var(--background) !important;
+  border: 1px solid var(--border-color) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+.textarea:focus {
+  border-color: var(--accent-secondary) !important;
+  box-shadow: var(--box-shadow-neon-secondary) !important;
+}
+
+/* Edit Footer */
+.editFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-color);
+  background: var(--muted);
+}

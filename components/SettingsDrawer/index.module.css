@@ -1,0 +1,248 @@
+/* ============================================
+   SETTINGS DRAWER - Cyberpunk Config Panel
+   ============================================ */
+
+.drawer :global(.ant-drawer-body) {
+  background: var(--card) !important;
+  padding: 0 !important;
+}
+
+.drawer :global(.ant-drawer-header) {
+  display: none !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--card);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--muted);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
+}
+
+.headerTitle::before {
+  content: "//";
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.closeBtn {
+  color: var(--muted-foreground) !important;
+  border: 1px solid transparent !important;
+  transition: all 0.15s !important;
+}
+
+.closeBtn:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  box-shadow: var(--box-shadow-neon-sm) !important;
+}
+
+/* Tabs */
+.tabs {
+  flex: 1;
+  padding: 0 20px;
+  overflow-y: auto;
+}
+
+.tabs :global(.ant-tabs-nav) {
+  margin-bottom: 20px;
+}
+
+.tabs :global(.ant-tabs-tab) {
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Content */
+.content {
+  padding: 8px 0;
+}
+
+/* Form Fields */
+.formField {
+  margin-bottom: 24px;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
+}
+
+.fieldLabel::before {
+  content: "> ";
+  opacity: 0.7;
+}
+
+.input {
+  background: var(--background) !important;
+  border: 1px solid var(--border-color) !important;
+  font-family: var(--font-mono) !important;
+}
+
+.input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: var(--box-shadow-neon-sm) !important;
+}
+
+.fieldHint {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+/* Model Settings */
+.addBtn {
+  margin-bottom: 16px;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+.modelList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modelItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--muted);
+  border: 1px solid var(--border-color);
+  transition: all 0.15s;
+}
+
+.modelItem:hover {
+  border-color: var(--accent);
+}
+
+.modelInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.modelName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+}
+
+.builtInBadge {
+  font-size: 9px !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.modelValue {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+}
+
+.modelActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.modelActions :global(.ant-btn) {
+  color: var(--muted-foreground) !important;
+}
+
+.modelActions :global(.ant-btn:hover) {
+  color: var(--accent) !important;
+}
+
+/* Edit Form */
+.editForm {
+  padding: 8px 0;
+}
+
+.editFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 20px;
+}
+
+/* Template Entry */
+.templateEntry {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--muted);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.templateEntry:hover {
+  border-color: var(--accent-secondary);
+  box-shadow: var(--box-shadow-neon-secondary);
+}
+
+.templateEntryIcon {
+  font-size: 28px;
+  color: var(--accent-secondary);
+  filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.4));
+}
+
+.templateEntryText {
+  flex: 1;
+}
+
+.templateEntryTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+}
+
+.templateEntryDesc {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+}
