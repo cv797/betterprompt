@@ -26,7 +26,7 @@ export const InputPanel = ({
   isLoading,
 }: InputPanelProps) => {
   const charCount = value.length;
-  const maxChars = 5000;
+  const maxChars = 50000;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     // Enter to submit, Shift+Enter for new line
